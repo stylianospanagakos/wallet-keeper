@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Routes, Route} from 'react-router-dom'
+import IndexPage from "./pages/wallets"
+import CreatePage from "./pages/wallets/create"
+import ShowPage from "./pages/wallets/show"
+import PrivateKeyPage from './pages/wallets/private-key'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container mx-auto p-8">
+      <div className="w-[400px] mx-auto">
+        <div className="text-center">
+          <Routes>
+            <Route path='/' element={<IndexPage/>}/>
+            <Route path='/create' element={<CreatePage/>}/>
+            <Route path='/wallets/:id' element={<ShowPage/>}/>
+            <Route path='/wallets/:id/private-key' element={<PrivateKeyPage/>}/>
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }
